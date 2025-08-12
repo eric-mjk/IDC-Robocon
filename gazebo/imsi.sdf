@@ -1,0 +1,87 @@
+<?xml version="1.0" ?>
+<sdf version="1.9">
+  <world name="default">
+
+    <!-- Bright scene -->
+    <scene>
+      <ambient>0.6 0.6 0.6 1</ambient>
+      <background>0.75 0.8 0.9 1</background>
+    </scene>
+
+    <!-- Directional light (unique name) -->
+    <light type="directional" name="custom_sun">
+      <pose>0 0 10 0.6 0 0</pose>
+      <diffuse>1 1 1 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <attenuation>
+        <range>100</range>
+        <constant>0.5</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 -0.5 -1</direction>
+      <cast_shadows>true</cast_shadows>
+    </light>
+
+    <!-- Procedural ground -->
+    <model name="procedural_ground">
+      <static>true</static>
+      <pose>0 0 0 0 0 0</pose>
+      <link name="ground_link">
+        <collision name="ground_collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>200 200</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="ground_visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>200 200</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.25 0.35 0.25 1</ambient>
+            <diffuse>0.25 0.45 0.25 1</diffuse>
+            <specular>0.05 0.05 0.05 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Your CAD environment -->
+    <model name="my_environment">
+      <static>true</static>
+      <!-- Adjust pose to place correctly -->
+      <pose>0 0 -1 1.5708 0 0</pose>
+      <link name="env_link">
+        <visual name="env_visual">
+          <geometry>
+            <mesh>
+              <uri>file:///home/mj/Desktop/IDC-ROBOCON/IDC-Robocon/gazebo/meshes/environment.dae</uri>
+              <scale>0.001 0.001 0.001</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.2 0.2 0.2 1</specular>
+          </material>
+        </visual>
+        <collision name="env_collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/mj/Desktop/IDC-ROBOCON/IDC-Robocon/gazebo/meshes/environment.dae</uri>
+              <scale>0.001 0.001 0.001</scale>
+            </mesh>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+
+  </world>
+</sdf>

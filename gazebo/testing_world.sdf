@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<sdf version="1.9">
+  <world name="default">
+
+
+    <!-- Environment mesh -->
+    <model name="my_environment">
+      <static>true</static>
+      <link name="env_link">
+        <visual name="env_visual">
+          <geometry>
+            <mesh>
+              <!-- Absolute path to your environment mesh -->
+              <uri>file:///home/mj/Desktop/IDC-ROBOCON/IDC-Robocon/gazebo/meshes/environment.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="env_collision">
+          <geometry>
+            <mesh>
+              <uri>file:///home/mj/Desktop/IDC-ROBOCON/IDC-Robocon/gazebo/meshes/environment.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- Robot from URDF -->
+
+
+  </world>
+</sdf>
